@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Dev.Tewoderos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Quicksand:wght@300;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --accent: #1f4959;
+      --form-bg: #1e3a5f;
+      --gray-bg: #1a1a1a;
+      --white: #fff;
+      --radius: 12px;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      min-width: 0;
+      max-width: 100vw;
+      overflow-x: hidden;
+      font-family: 'Quicksand', sans-serif;
+      background: var(--gray-bg);
+      color: var(--white);
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      box-sizing: border-box;
+      overflow-x: hidden !important;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #333;
+      background: rgba(0, 0, 0, 0.85);
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav a.current {
+      color: var(--accent);
+    }
+
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: calc(100vh - 100px);
+      width: 100vw;
+      box-sizing: border-box;
+      align-items: stretch;
+    }
+
+    .contact-image, .contact-form {
+      flex: 1 1 350px;
+      min-width: 280px;
+      max-width: 600px;
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+
+    .contact-image {
+      background: var(--gray-bg);
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100%;
+      margin-top: 2.5vh;
+      opacity: 0;
+      transform: translateX(-100px);
+      transition: opacity 0.7s cubic-bezier(.45,.03,.51,.94), transform 0.7s cubic-bezier(.45,.03,.51,.94);
+    }
+    .contact-image.slide-in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .hi-text {
+      font-family: 'Bungee', sans-serif;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .contact-image-placeholder {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .contact-image-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.8;
+    }
+
+    .contact-info div {
+      margin: 0.5rem 0;
+    }
+
+    .home-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.8rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background: #163542;
+      transform: translateY(-2px);
+    }
+
+    .contact-form {
+      background: var(--form-bg);
+      padding: 4rem 1rem;
+      border-top-left-radius: var(--radius);
+      border-bottom-left-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      opacity: 0;
+      transform: translateX(100px);
+      transition: opacity 0.7s cubic-bezier(.45,.03,.51,.94), transform 0.7s cubic-bezier(.45,.03,.51,.94);
+    }
+    .contact-form.slide-in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .contact-form h1 {
+      font-family: 'Bungee', sans-serif;
+      margin-bottom: 1.3rem;
+      text-align: center;
+    }
+
+    .contact-form .contact-intro {
+      font-size: 1.1rem;
+      color: #f5f5f5;
+      margin-bottom: 2.2rem;
+      text-align: center;
+      font-family: 'Quicksand', sans-serif;
+      line-height: 1.7;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-form-fields-wrapper {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2.2rem 1.4rem 1.5rem 1.4rem;
+      box-shadow: 0 6px 50px 0 rgba(30,30,40,0.07);
+      max-width: 370px;
+      margin: 2.3rem auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .form-group {
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    .form-group label {
+      min-width: 115px;
+      margin-bottom: 0;
+      font-weight: bold;
+      font-size: 0.96rem;
+      color: #1e3a5f;
+      text-align: right;
+      margin-right: 7px;
+      white-space: nowrap;
+    }
+
+    .form-group label::after {
+      content: ":";
+      margin-left: 2px;
+    }
+
+    input, textarea, select {
+      border: none;
+      border-bottom: 2px solid var(--accent);
+      border-radius: 0;
+      background-color: #f5f5f5;
+      font-family: inherit;
+      font-size: 0.99rem;
+      color: #333;
+      box-sizing: border-box;
+      transition: border-color 0.2s, background 0.2s;
+      resize: none;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      padding: 0.38rem 0.8rem 0.38rem 0.5rem;
+      margin-left: 4px;
+    }
+
+    textarea {
+      min-height: 65px;
+      max-height: 120px;
+      padding-top: 8px;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-bottom: 2.5px solid var(--accent);
+      background-color: #fff;
+    }
+
+    .form-btn-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.7rem;
+      margin-left: 0;
+      flex-wrap: wrap;
+    }
+
+    .submit-btn, .reset-btn {
+      padding: 0.5rem 1.4rem;
+      font-size: 0.95rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+    .reset-btn {
+      background: #aaa;
+      color: #fff;
+    }
+    .submit-btn:hover {
+      background-color: #163542;
+    }
+    .reset-btn:hover {
+      background: #969696;
+      color: #fff;
+    }
+
+    hr.divider {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin: 4rem 0 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      border-top: 1px solid #333;
+    }
+
+    .social-icons {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 900px) {
+      .contact-wrapper {
+        flex-direction: column;
+        align-items: center;
+        min-height: unset;
+      }
+      .contact-image, .contact-form {
+        max-width: 98vw;
+        min-width: 0;
+        margin: 0 auto;
+      }
+      .contact-form {
+        border-radius: 0 0 var(--radius) var(--radius);
+        padding-top: 2rem;
+      }
+      .contact-form-fields-wrapper {
+        padding: 1.2rem 0.4rem 1.2rem 0.4rem;
+        max-width: 98vw;
+      }
+      .contact-image-placeholder {
+        width: 95vw;
+        max-width: 350px;
+        height: auto;
+      }
+      .hi-text {
+        font-size: 2rem;
+      }
+      .form-group label {
+        min-width: 80px;
+        font-size: 0.93rem;
+      }
+      input, textarea, select {
+        font-size: 0.92rem;
+      }
+      textarea {
+        min-height: 45px;
+        max-height: 90px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 1.3rem 0.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        gap: 1rem;
+      }
+      .contact-image-placeholder {
+        width: 100vw;
+        max-width: 98vw;
+      }
+      .contact-info {
+        font-size: 0.95rem;
+      }
+      .contact-form-fields-wrapper {
+        padding: 1rem 0.1rem;
+        font-size: 0.97rem;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      requestAnimationFrame(function() {
+        document.querySelector('.contact-image').classList.add('slide-in');
+        document.querySelector('.contact-form').classList.add('slide-in');
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">Dev.Tewoderos</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="#" class="current">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="contact-wrapper">
+    <div class="contact-image">
+      <h1 class="hi-text">Give Me A Hi!</h1>
+      <div class="contact-image-placeholder">
+        <img src="images/contact.jpg" alt="Contact Image Placeholder" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="contact-info">
+        <div><i class="fas fa-phone"></i> Phone: +2519090548787</div>
+        <div><i class="fas fa-envelope"></i> Email: tewoderos7abebe@gmail.com</div>
+        <div><i class="fas fa-map-marker-alt"></i> Address: Addis Ababa, Ethiopia</div>
+      </div>
+      <a href="index.html" class="home-btn">Back to Home</a>
+    </div>
+
+    <div class="contact-form">
+      <h1>Contact Me</h1>
+      <div class="contact-intro">
+        I truly enjoy connecting with new people! If you have a project idea, want to collaborate, or just wish to say hello, I'm always happy to hear from you. Drop me a message and I'll get back to you soon — let's make something awesome together!
+      </div>
+      <form>
+        <div class="contact-form-fields-wrapper">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" placeholder="example@domain.com" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Your message here..."></textarea>
+          </div>
+          
+          <div class="form-btn-row">
+            <button class="submit-btn" type="submit">Send</button>
+            <button class="reset-btn" type="reset">Reset</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <footer>
+    &copy; 2025 Tewoderos Abebe | Proudly Ethiopian <br />
+    Terms | Conditions
+
+    <div class="social-icons">
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" title="Github"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+</body>
+</html>

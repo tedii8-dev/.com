@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Creative Collaborations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Oswald:wght@400;500&family=Playfair+Display:wght@500&family=Quicksand:wght@400;500&family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body { background: #000; color: #fff; font-family: 'Quicksand', sans-serif; margin: 0; }
+    header { display: flex; justify-content: space-between; padding: 20px 50px; border-bottom: 1px solid #C00; background: #111;}
+    .logo { font-size: 24px; font-weight: bold; color: #C00; }
+    nav ul { display: flex; gap: 30px; list-style: none; padding: 0; margin: 0; }
+    nav a { color: white; text-decoration: none; }
+    nav a:hover { color: #C00; }
+    nav a.current { color: #C00; border-bottom: 2px solid #C00;}
+    .gallery-section { padding: 60px 50px; max-width: 1200px; margin: 0 auto; }
+    .section-heading { font-family: 'Bungee', sans-serif; color: #C00; font-size: 2.5rem; margin-bottom: 20px; }
+    .photographers-section { display: flex; justify-content: space-between; gap: 40px; margin-bottom: 80px; }
+    .photographers-section > div { display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; gap: 30px;}
+    .photographers-section img { width: 85%; border-radius: 15px; border: 2px solid #C00; object-fit: cover;}
+    .photo-caption { font-family: 'Oswald', sans-serif; color: white; font-size: 1.5rem; margin: 20px 0 10px; letter-spacing: 0.5px;}
+    .photo-description { font-family: 'Playfair Display', serif; background: #200; color: #FFCCCB; padding: 12px; border-radius: 10px; border-left: 3px solid #C00; line-height: 1.6;}
+    .digital-heading { font-family: 'Bungee', sans-serif; text-align: center; font-size: 2rem; color: #fff; border: 2px solid #C00; padding: 12px; margin-top: 80px; background: #191919;}
+    .digital-wrapper { display: flex; justify-content: center; align-items: flex-start; gap: 40px; margin: 60px 0; flex-wrap: wrap;}
+    .image-column { display: flex; flex-direction: column; gap: 20px; align-items: center;}
+    .circular-image { width: 150px; height: 150px; border-radius: 50%; border: 3px solid #CBB04C; object-fit: cover;}
+    .normal-image { width: 150px; height: 200px; border-radius: 15px; border: 2px solid #CBB04C; object-fit: cover;}
+    .center-image { width: 200px; height: 450px; border-radius: 15px; border: 2px solid #CBB04C; object-fit: cover;}
+    .image-description { width: 150px; background: #140000; padding: 15px; text-align: center; border: 1px solid #C00;}
+    .special-gallery { display: flex; justify-content: center; gap: 50px; margin: 60px auto 4rem auto; padding: 0 50px; max-width: 1400px;}
+    .special-gallery img { width: 200px; height: 340px; padding: 6px; object-fit: cover; border: 2px solid indianred; background: #0c0a00;}
+    .geez-scroll-wrapper { margin: 30px 0; position: relative; overflow: hidden; background: #181818; border-radius: 8px; border: 1px solid #CBB04C;}
+    .geez-track { display: flex; }
+    .geez-text { font-family: 'Noto Sans Ethiopic', sans-serif; font-weight: 700; font-size: 2rem; color: #CBB04C; white-space: nowrap; flex-shrink: 0; padding: 15px 0; width: 100%; }
+    .summary-container { background: #180000; border-left: 4px solid #C00; padding: 30px; margin: 60px 0 0 0;}
+    .summary-text { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #fff; line-height: 1.8; letter-spacing: 0.3px;}
+    .summary-text strong { color: #C00; font-weight: 500; }
+    .cta-row { display: flex; justify-content: center; align-items: center; gap: 18px; margin: 40px 0;}
+    .cta-main-text { font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: #fff; text-align: center;}
+    .cta-action-btn { background: #1E90FF; color: #111; border: none; border-radius: 5px; padding: 8px 18px; font-size: 1rem; font-family: 'Oswald', sans-serif; font-weight: 500; text-decoration: none; margin-left: 10px;}
+    .cta-action-btn:hover { background: #1374c6; color: #fff;}
+    .final-section { padding: 60px 50px; background: #101010; border-top: 1px solid #C00; border-bottom: 1px solid #C00; margin-bottom: 10rem;}
+    .final-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; gap: 40px;}
+    .final-image { flex: 1; border: 3px solid #fff; padding: 10px;}
+    .final-image img { width: 100%; height: 300px; object-fit: cover;}
+    .final-content { flex: 1; text-align: center; padding: 0 30px;}
+    .final-heading { font-family: 'Bungee', sans-serif; color: #C00; font-size: 1.8rem; margin-bottom: 30px; }
+    .button-group { display: flex; justify-content: center; gap: 15px; margin-top: 20px;}
+    .final-button { background: #CBB04C; color: white; padding: 8px 16px; font-family: 'Oswald', sans-serif; font-size: 0.9rem; font-weight: 500; border-radius: 5px; border: none;}
+    footer { text-align: center; padding: 30px; color: rgb(102, 102, 102); border-top: 1px solid #C00; background: #111;}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Dev.Tewoderos</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#" class="current">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="gallery-section">
+      <h1 class="section-heading" style="color: white;">SOME OF MY PARTNERS <br> AND THEIR WORKS</h1>
+      <div class="photographers-section" style="margin: 200px 0px;">
+        <div>
+          <img src="pics/pr.jpg" alt="Lalibela Rock Churches - Photograph by Elias A." style="height: 400px;" />
+          <img src="pics/etclean.jpg" alt="Addis Ababa Skyline - Photograph by Selam W." style="height: 300px; margin-top: 20px;" />
+        </div>
+        <div>
+          <h2 class="photo-caption">"Capturing moments before they become memory."</h2>
+          <div class="photo-description" style="margin-top: 20px;">I worked with the best photographers in the field.</div>
+          <img src="pics/camera.jpg" alt="Traditional Coffee Ceremony - Photograph by Yonas T." style="height: 300px; margin-top: 20px;" />
+        </div>
+      </div>
+      <div class="digital-heading" style="margin-top: 80px; margin-bottom: 50px;">Ethiopian Digital Warriors</div>
+      <div class="summary-container">
+        <p class="summary-text">
+          <strong>Ethiopian digital artists</strong> are rising as innovative visual narrators, merging ancient heritage with cutting-edge creativity. With deep cultural awareness and powerful storytelling instincts, they reshape traditional art into immersive digital experiences.
+        </p>
+      </div>
+      <div class="geez-scroll-wrapper" id="geez-scroll-1" style="margin: 200px 0px;">
+        <div class="geez-track" id="geez-track-1">
+          <div class="geez-text" id="geez-text-1">
+            <marquee behavior="scroll" direction="left" scrollamount="18" loop="infinite">
+            ፻ ፪፻ ፫፻ ፬፻ ፻ ፪፻ ፫፻ ፬፻ ፭፻ ፮፻ ፯፻ ፰፻ ፱፻ ፲፻ ፲፩፻ ፲፪፻ ፲፫፻ ፲፬፻ ፲፭፻ ፲፮፻ ፲፯፻ ፲፰፻ ፲፱፻ ፳፻ ፳፩፻ ፳፪፻ ፳፫፻ ፳፬፻ ፳፭፻ ፳፮፻ ፳፯፻ ፳፰፻ ፳፱፻ ፴፻ ፴፩፻ ፴፪፻ ፴፫፻ ፴፬፻ ፴፭፻ ፴፮፻ ፴፯፻ ፴፰፻ ፴፱፻ ፵፻ ፵፩፻ ፵፪፻ ፵፫፻ ፵፬፻ ፵፭፻ ፵፮፻ ፵፯፻ ፵፰፻ ፵፱፻ ፶፻ ፶፩፻ ፶፪፻ ፶፫፻ ፶፬፻ ፶፭፻ ፶፮፻ ፶፯፻ ፶፰፻ ፶፱፻ ፷፻ ፷፩፻ ፷፪፻ ፷፫፻ ፷፬፻ ፷፭፻ ፷፮፻ ፷፯፻ ፷፰፻ ፷፱፻ ፸፻ ፸፩፻ ፸፪፻ ፸፫፻ ፸፬፻ ፸፭፻ ፸፮፻ ፸፯፻ ፸፰፻ ፸፱፻ ፹፻ ፹፩፻ ፹፪፻ ፹፫፻ ፹፬፻ ፹፭፻ ፹፮፻ ፹፯፻ ፹፰፻ ፹፱፻ ፺፻ ፺፩፻ ፺፪፻ ፺፫፻ ፺፬፻ ፺፭፻ ፺፮፻ ፺፯፻ ፺፰፻ ፺፱፻ ፼ ፼፩ ፼፪ ፼፫ ፼፬ ፼፭ ፼፮ ፼፯ ፼፰ ፼፱ ፼፲ ፼፲፩ ፼፲፪ ፼፲፫ ፼፲፬ ፼፲፭ ፼፲፮ ፼፲፯ ፼፲፰ ፼፲፱ ፼፳ ፼፳፩ ፼፳፪ ፼፳፫ ፼፳፬ ፼፳፭ ፼፳፮ ፼፳፯ ፼፳፰ ፼፳፱ ፼፴ ፼፴፩ ፼፴፪ ፼፴፫ ፼፴፬ ፼፴፭ ፼፴፮ ፼፴፯ ፼፴፰ ፼፴፱ ፼፵ ፼፵፩ ፼፵፪ ፼፵፫ ፼፵፬ ፼፵፭ ፼፵፮ ፼፵፯ ፼፵፰ ፼፵፱ ፼፶ ፼፶፩ ፼፶፪ ፼፶፫ ፼፶፬ ፼፶፭ ፼፶፮ ፼፶፯ ፼፶፰ ፼፶፱ ፼፷ ፼፷፩ ፼፷፪ ፼፷፫ ፼፷፬ ፼፷፭ ፼፷፮ ፼፷፯ ፼፷፰ ፼፷፱ ፼፸ ፼፸፩ ፼፸፪ ፼፸፫ ፼፸፬ ፼፸፭ ፼፸፮ ፼፸፯ ፼፸፰ ፼፸፱ ፼፹ ፼፹፩ ፼፹፪ ፼፹፫ ፼፹፬ ፼፹፭ ፼፹፮ ፼፹፯ ፼፹፰ ፼፹፱ ፼፺ ፼፺፩ ፼፺፪ ፼፺፫ ፼፺፬ ፼፺፭ ፼፺፮ ፼፺፯ ፼፺፰ ፼፺፱፼.
+            </marquee>
+          </div>
+        </div>
+      </div>
+      <div class="digital-wrapper">
+        <div class="image-column">
+          <img src="pics/star.jpg" class="circular-image" alt="Mekdes H. - Digital Illustrator" style="margin-bottom: 6rem;">
+          <img src="pics/ballony.jpg" class="normal-image" alt="'Timket Festival' by Nahom B.">
+          <div class="image-description" style="margin-right: 7rem; margin-bottom: 3rem;">
+            <h3>Legacy Echoes</h3>
+            Traces of ancient creativity in modern minds. Series by Yohannes T.
+          </div>
+        </div>
+        <img src="pics/aura.jpg" class="center-image" alt="'Spirit of Aksum' - Mixed Media by Sara D.">
+        <div class="image-column">
+          <img src="pics/Mism.jpg" class="circular-image" alt="Daniel K. - 3D Artist" style="margin-bottom: 6rem;">
+          <img src="pics/w.jpeg" class="normal-image" alt="'Urban Ethiopia' by Frehiwot M." >
+          <div class="image-description" style="margin-left: 7rem; margin-bottom: 3rem;">
+            <h3>Digital Flame</h3>
+            Today's artists redefine visual expression. Collective exhibition 2024
+          </div>
+        </div>
+      </div>
+      <div class="summary-container" style="margin: 200px 0px;">
+        <p class="summary-text">
+          <strong>Ethiopic Digital Art</strong>. will always spark joy in those who believe in their country. Encouraging creativity, strength and HOPE.
+        </p>
+      </div>
+      <div class="special-gallery">
+        <img src="pics/Red.jpg" alt="Special Art 1">
+        <img src="pics/Yellow.jpg" alt="Special Art 2">
+        <img src="pics/Peace .jpeg" alt="Special Art 3">
+      </div>
+      <div class="cta-row">
+        <span class="cta-main-text">"Witness the 21th century's state of the ART."</span>
+        <a class="cta-action-btn" href="https://www.instagram.com/nohuyop/" style="background: yellowgreen;">Getting Interested...?</a>
+      </div>
+    </section>
+    <div class="geez-scroll-wrapper" id="geez-scroll-1" style="margin: 200px 0px;">
+      <div class="geez-track" id="geez-track-1">
+        <div class="geez-text" id="geez-text-1">
+          <marquee behavior="scroll" direction="left" scrollamount="18" loop="infinite">
+          ፻ ፪፻ ፫፻ ፬፻ ፻ ፪፻ ፫፻ ፬፻ ፭፻ ፮፻ ፯፻ ፰፻ ፱፻ ፲፻ ፲፩፻ ፲፪፻ ፲፫፻ ፲፬፻ ፲፭፻ ፲፮፻ ፲፯፻ ፲፰፻ ፲፱፻ ፳፻ ፳፩፻ ፳፪፻ ፳፫፻ ፳፬፻ ፳፭፻ ፳፮፻ ፳፯፻ ፳፰፻ ፳፱፻ ፴፻ ፴፩፻ ፴፪፻ ፴፫፻ ፴፬፻ ፴፭፻ ፴፮፻ ፴፯፻ ፴፰፻ ፴፱፻ ፵፻ ፵፩፻ ፵፪፻ ፵፫፻ ፵፬፻ ፵፭፻ ፵፮፻ ፵፯፻ ፵፰፻ ፵፱፻ ፶፻ ፶፩፻ ፶፪፻ ፶፫፻ ፶፬፻ ፶፭፻ ፶፮፻ ፶፯፻ ፶፰፻ ፶፱፻ ፷፻ ፷፩፻ ፷፪፻ ፷፫፻ ፷፬፻ ፷፭፻ ፷፮፻ ፷፯፻ ፷፰፻ ፷፱፻ ፸፻ ፸፩፻ ፸፪፻ ፸፫፻ ፸፬፻ ፸፭፻ ፸፮፻ ፸፯፻ ፸፰፻ ፸፱፻ ፹፻ ፹፩፻ ፹፪፻ ፹፫፻ ፹፬፻ ፹፭፻ ፹፮፻ ፹፯፻ ፹፰፻ ፹፱፻ ፺፻ ፺፩፻ ፺፪፻ ፺፫፻ ፺፬፻ ፺፭፻ ፺፮፻ ፺፯፻ ፺፰፻ ፺፱፻ ፼ ፼፩ ፼፪ ፼፫ ፼፬ ፼፭ ፼፮ ፼፯ ፼፰ ፼፱ ፼፲ ፼፲፩ ፼፲፪ ፼፲፫ ፼፲፬ ፼፲፭ ፼፲፮ ፼፲፯ ፼፲፰ ፼፲፱ ፼፳ ፼፳፩ ፼፳፪ ፼፳፫ ፼፳፬ ፼፳፭ ፼፳፮ ፼፳፯ ፼፳፰ ፼፳፱ ፼፴ ፼፴፩ ፼፴፪ ፼፴፫ ፼፴፬ ፼፴፭ ፼፴፮ ፼፴፯ ፼፴፰ ፼፴፱ ፼፵ ፼፵፩ ፼፵፪ ፼፵፫ ፼፵፬ ፼፵፭ ፼፵፮ ፼፵፯ ፼፵፰ ፼፵፱ ፼፶ ፼፶፩ ፼፶፪ ፼፶፫ ፼፶፬ ፼፶፭ ፼፶፮ ፼፶፯ ፼፶፰ ፼፶፱ ፼፷ ፼፷፩ ፼፷፪ ፼፷፫ ፼፷፬ ፼፷፭ ፼፷፮ ፼፷፯ ፼፷፰ ፼፷፱ ፼፸ ፼፸፩ ፼፸፪ ፼፸፫ ፼፸፬ ፼፸፭ ፼፸፮ ፼፸፯ ፼፸፰ ፼፸፱ ፼፹ ፼፹፩ ፼፹፪ ፼፹፫ ፼፹፬ ፼፹፭ ፼፹፮ ፼፹፯ ፼፹፰ ፼፹፱ ፼፺ ፼፺፩ ፼፺፪ ፼፺፫ ፼፺፬ ፼፺፭ ፼፺፮ ፼፺፯ ፼፺፰ ፼፺፱፼.
+          </marquee>
+        </div>
+      </div>
+    </div>
+    <section class="final-section">
+      <div class="final-container">
+        <div class="final-image">
+          <img src="pics/walia.jpg" alt="Creative Work Placeholder">
+        </div>
+        <div class="final-content">
+          <h2 class="final-heading">THANK YOU FOR CHECKING MY WEBSITE</h2>
+          <div class="button-group">
+            <a href="#" class="final-button">Next</a>
+            <a href="" class="final-button">Discover More</a>
+          </div>
+        </div>
+        <div class="final-image">
+          <img src="pics/ppp.jpeg" alt="Collaboration Work Placeholder">
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; All rights reserved.<br />
+    2025. <a href="#" style="color: rgb(102, 102, 102); text-decoration: none;">Terms</a> | <a href="#" style="color: rgb(102, 102, 102); text-decoration: none;">Conditions</a> | <a href="#" style="color: rgb(102, 102, 102); text-decoration: none;">Privacy Policy</a>
+  </footer>
+</body>
+</html>

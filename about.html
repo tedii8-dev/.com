@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tewoderos | Ethiopian Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Quicksand', sans-serif;
+            background: #000; 
+            color: #fff; 
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            padding: 1.5rem; 
+            border-bottom: 1px solid #333;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .logo { 
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #FCDD09;
+        }
+
+        nav ul { 
+            display: flex; 
+            gap: 2rem; 
+            list-style: none; 
+            padding: 0; 
+            margin: 0;
+        }
+
+        nav a { 
+            color: white; 
+            text-decoration: none;
+        }
+
+        nav a.current { 
+            color: #FCDD09;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-family: 'Bungee', sans-serif;
+            font-size: 3rem;
+            margin: 2rem 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Animation keyframes */
+        @keyframes fromLeft {
+            0% { opacity: 0; transform: translateX(-80px);}
+            100% { opacity: 1; transform: translateX(0);}
+        }
+        @keyframes fromRight {
+            0% { opacity: 0; transform: translateX(80px);}
+            100% { opacity: 1; transform: translateX(0);}
+        }
+
+        /* Animated sections */
+        .slide-from-left {
+            opacity: 0;
+            animation: fromLeft 1.2s cubic-bezier(.45,.03,.51,.94) forwards;
+        }
+        .slide-from-right {
+            opacity: 0;
+            animation: fromRight 1.2s cubic-bezier(.45,.03,.51,.94) forwards;
+        }
+
+        /* Delays for smooth sequence */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.7s; }
+
+        .section {
+            display: flex;
+            padding: 3rem;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-text {
+            flex: 1;
+        }
+
+        .highlight {
+            color: #FCDD09;
+            font-weight: 500;
+        }
+
+        .circular-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #3a7bd5;
+        }
+
+        .golden-era {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .golden-heading {
+            display: inline-block;
+            font-size: 2rem;
+            color: #FCDD09;
+            border: 2px solid #FCDD09;
+            padding: 0.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 30px;
+        }
+
+        .golden-images {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: yellow;
+            margin: 60px 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Dev.Tewoderos</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="current">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="section slide-from-left delay-1">
+            <h1>My Ethiopian Tech Journey</h1>
+        </div>
+        
+        <div class="section slide-from-left delay-1">
+            <div class="section-text">
+                <h2>"<span class="highlight">Selam</span> World!"</h2>
+                <p>
+                    My story begins in <span class="highlight">Addis Ababa</span>, where as a child I would watch the city's bustling tech hubs with fascination. While other kids played football, I sketched website layouts in my notebook, dreaming of one day building digital bridges for Ethiopia. The <span class="highlight">African sun</span> would set as I practiced HTML tags by lamplight during power outages - my first lessons in resilience.
+                </p>
+            </div>
+            <img src="Bkid.jpg" alt="Young Tewoderos in Ethiopia" class="circular-image">
+        </div>
+        
+        <hr style="margin: 200px 0px;">
+        
+        <div class="section slide-from-right delay-2">
+            <img src="Tkid.jpg" alt="Teenage Tewoderos coding" class="circular-image">
+            <div class="section-text">
+                <h2>who am <span class="highlight">I?</span> </h2>
+                <p>
+                    During high school in <span class="highlight">Ginbot 20</span>, I turned our family computer into a coding lab. Between <span class="highlight">bunna</span> breaks, I built my first websites - clunky but full of passion. I learned that Ethiopian <span class="highlight">ingenuity</span> could overcome slow internet and limited resources. Each project carried bits of our culture into the digital world.
+                </p>
+            </div>
+        </div>
+        
+        <hr style="margin: 200px 0px;">
+        
+        <div class="golden-era slide-from-left delay-3">
+            <div class="golden-heading">Werkama Zemen - The Golden Era</div>
+            <div class="golden-images">
+                <img src="C1.jpg" alt="Ethiopian tech" class="circular-image">
+                <img src="C2.jpg" alt="Ethiopian development" class="circular-image">
+            </div>
+            <p style="max-width: 800px; margin: 0 auto; margin-top: 100px; border-left: 1px solid yellow; padding-left: 20px ;">
+                Today, I stand at the intersection of <span class="highlight">Ethiopian tradition</span> and modern web development. From the ancient wisdom of <span class="highlight">Axum</span> to the innovative spirit of <span class="highlight">Sheba Valley</span>, my work carries forward our legacy. I build not just websites, but digital <span class="highlight">mesob</span> - spaces where ideas gather and flourish. This is my <span class="highlight">desta</span>, my joy - bringing Ethiopian excellence to the global digital landscape.
+            </p>
+        </div>
+    </main>
+
+    <hr>
+    
+    <footer>
+        &copy; 2025 Tewoderos Abebe | Proudly Ethiopian
+    </footer>
+</body>
+</html>
